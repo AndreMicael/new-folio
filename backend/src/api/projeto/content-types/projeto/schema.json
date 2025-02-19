@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projetos",
+  "info": {
+    "singularName": "projeto",
+    "pluralName": "projetos",
+    "displayName": "Projetos",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "stacks": {
+      "type": "customField",
+      "default": "[]",
+      "options": [
+        "Javascript",
+        "Java",
+        "CSS3",
+        "HTML5",
+        "Tailwind",
+        "Next.js",
+        "PHP",
+        "React",
+        "Puppeteer",
+        "Python",
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB",
+        "Docker"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "excerpt": {
+      "type": "text"
+    },
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.circle-green::before {
+  content: "  ";
+  display: block;
+  @apply bg-green-500 w-2 h-2 rounded-full mr-1;
+}
+
+.circle-orange::before {
+  content: "  ";
+  display: block;
+  @apply bg-orange-500 w-2 h-2 rounded-full mr-1;
+}
+
+.navbar Button {
+  @apply w-14 h-14;
+}
