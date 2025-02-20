@@ -1,12 +1,24 @@
-import React from "react";
 
-export async function generateStaticParams() {
-  const slugs = ["finans", "ion-imoveis"];
-  return slugs.map((slug) => ({ slug }));
+import {projetos} from "@/app/projetos/[slug]/projects"
+
+export function generateStaticParams() {
+  return [
+    { slug: projetos.slug},
+   
+  ]
 }
+ 
 
-const Projeto = ({ params }: { params: { slug: string } }) => {
-  return <div>Projeto: {params.slug}</div>;
-};
-
-export default Projeto;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string; }>
+}) {
+  const { slug } = await params
+  
+  return (
+    <div>
+      <p>{slug}</p>
+    </div>
+  )
+}
