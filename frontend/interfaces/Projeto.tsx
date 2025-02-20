@@ -27,6 +27,7 @@ export interface Imagem {
 }
 
 export default interface Projeto {
+  id: string;
   title: string;
   excerpt: string;
   description: string;
