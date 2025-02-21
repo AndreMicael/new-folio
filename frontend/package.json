@@ -74,6 +74,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "prisma": "^6.3.1"
   }
 }

@@ -93,8 +93,41 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontFamily: {
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Text', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: '#86868b',
+            h1: {
+              color: '#1d1d1f',
+            },
+            h2: {
+              color: '#1d1d1f',
+            },
+            h3: {
+              color: '#1d1d1f',
+            },
+            strong: {
+              color: '#1d1d1f',
+            },
+            a: {
+              color: '#0071e3',
+              '&:hover': {
+                color: '#0077ED',
+              },
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("daisyui")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("daisyui"),
+    require('@tailwindcss/typography'),
+  ],
 };
 export default config;

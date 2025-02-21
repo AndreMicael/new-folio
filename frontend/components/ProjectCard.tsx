@@ -3,40 +3,54 @@ import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
-
-
+import { Code2, ArrowUpRight } from "lucide-react";
 
 interface ProjectCardProps {
+  slug: string;
+  images: string;
   title: string;
   excerpt: string;
   stack: string;
-  images: string;
-  slug: string;
 }
 
-const ProjectCard = (props: ProjectCardProps) => {
-
-  console.log("Projeto Card: " + process.env.NEXT_PUBLIC_STRAPI_URL);
-
+const ProjectCard = ({ slug, images, title, excerpt, stack }: ProjectCardProps) => {
   return (
-    <Link href={`/projetos/${props.slug}`}>
-      <Card className="max-w-4xl rounded-2xl mx-auto mb-6">
+    <Link href={`/projetos/${slug}`}>
+      <Card className="group relative max-w-4xl rounded-2xl mx-auto mb-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
         <CardContent className="p-0">
           <div className="w-full h-full">
-            <div className="h-[50vw] overflow-clip rounded-2xl shadow-lg">
+            <div className="relative h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden rounded-t-2xl">
               <Image
-                className="object-cover object-top w-full"
-                src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${props.images}`}
-                alt={props.title}
-                layout="responsive"
-                width={700}
-                height={475}
+                className="object-cover object-top w-full transition-transform duration-300 group-hover:scale-105"
+                src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${images}`}
+                alt={title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
               />
+              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all duration-300" />
             </div>
-            <div className="p-4">
-              <h1>{props.title}</h1>
-              <h3>{props.excerpt}</h3>
-              <p>{props.stack}</p>
+            
+            <div className="p-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <h2 className="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                  {title}
+                </h2>
+                <ArrowUpRight className="w-6 h-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+              </div>
+              
+              <p className="text-gray-600 text-lg leading-relaxed">
+                {excerpt}
+              </p>
+              
+              <div className="flex items-center space-x-2 pt-2">
+                <Code2 className="w-5 h-5 text-gray-500" />
+                <p className="text-sm text-gray-500 font-medium">
+                  {stack.split(/[,\s]+/).map((tech: string) => 
+                    tech.toUpperCase()
+                  ).join(' • ')}
+                </p>
+              </div>
             </div>
           </div>
         </CardContent>
