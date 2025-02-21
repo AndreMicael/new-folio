@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Avatar } from "./ui/avatar";
-import { Linkedin, User } from "lucide-react";
+import { Linkedin, File } from "lucide-react";
 import { Github } from "lucide-react";
 import "./Components.css";
 import avatar from "@/assets/image/avatar.jpg";
@@ -40,29 +40,36 @@ const ProfileCard = () => {
         </CardContent>
         <CardContent className="gap-8 scale-90 w-full flex flex-col">
           <div className="flex   justify-center items-center  gap-2 sm:gap-3">
-            <Button className="bg-[#0077B5] hover:bg-[#006399] text-sm sm:text-base h-9 sm:h-10">
+            <Button 
+            variant="profile"
+            className="text-sm sm:text-base h-9 sm:h-10
+            outline-2 outline outline-sky-600 text-sky-600">
               <Linkedin className="mr-2 h-4 w-4" />
               LinkedIn
             </Button>
             <Button
-              variant="outline"
-              className="text-sm sm:text-base h-9 sm:h-10"
+              variant="profile"
+              className="text-sm sm:text-base h-9 sm:h-10
+              outline-2 outline outline-violet-700 text-violet-700
+              "
             >
               <Github className="mr-2 h-4 w-4" />
               GitHub
             </Button>
             <Button
-              variant="outline"
-              className="text-sm sm:text-base h-9 sm:h-10"
+              variant="profile"
+              className="text-sm sm:text-base h-9 sm:h-10
+              outline-2 outline outline-gray-400 text-gray-600" 
             >
-              <User className="mr-2 h-4 w-4" />
-              Resume
+              <File className="mr-2 h-4 w-4" />
+              
+              Currículo
             </Button>
           </div>
 
-          <p className="text-gray-600 text-center text-xs  w-full font-semibold max-w-2xl sm:text-base sm:px-4">
-            Estudante de Sistemas de Informação na Universidade Federal de Mato
-            Grosso, atualmente fazendo Estágio em Desenvolvimento Full Stack.
+          <p className="text-gray-500 text-center text-sm  w-full font-normal max-w-2xl sm:text-base sm:px-4">
+            Estudante de Sistemas de Informação na <strong> Universidade Federal de Mato
+            Grosso</strong>, atualmente fazendo Estágio em <strong>Desenvolvimento Web</strong>.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-2 text-gray-600 text-sm sm:text-base">

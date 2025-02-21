@@ -30,7 +30,7 @@ const ProjectContent: React.FC<Props> = ({ slug }) => {
         .map((project) => (
           <div 
             key={project.id} 
-            className="space-y-12 bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-xl"
+            className=" bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-xl"
           >
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
               <img
@@ -40,11 +40,11 @@ const ProjectContent: React.FC<Props> = ({ slug }) => {
               />
             </div>
             
-            <h2 className="text-4xl font-semibold text-[#1d1d1f] tracking-tight text-center">
+            <h2 className="text-2xl mb-2 font-semibold text-[#1d1d1f] tracking-tight text-left">
               {project.title}
             </h2>
             
-            <div className="prose prose-lg max-w-none prose-headings:font-semibold prose-headings:text-[#1d1d1f] prose-p:text-[#86868b] prose-p:leading-relaxed">
+            <div className="prose prose-lg max-w-none prose-headings:font-semibold text-sm text-justify prose-headings:text-[#1d1d1f] prose-p:text-[#86868b] prose-p:leading-relaxed">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
@@ -52,7 +52,7 @@ const ProjectContent: React.FC<Props> = ({ slug }) => {
                     node?: any;
                     inline?: boolean;
                     className?: string;
-                    children: React.ReactNode;
+                    children?: React.ReactNode;
                   }) {
                     const match = /language-(\w+)/.exec(className || "");
                     return !inline && match ? (
@@ -66,7 +66,7 @@ const ProjectContent: React.FC<Props> = ({ slug }) => {
                         {String(children).replace(/\n$/, "")}
                       </SyntaxHighlighter>
                     ) : (
-                      <code className="bg-[#f5f5f7] px-2 py-1 rounded-md text-[#1d1d1f]" {...props}>
+                      <code className="bg-[#f5f5f7] text-sm px-2 py-1 rounded-md order-2 text-[#1d1d1f]" {...props}>
                         {children}
                       </code>
                     );
@@ -78,7 +78,7 @@ const ProjectContent: React.FC<Props> = ({ slug }) => {
             </div>
 
             <div className="pt-8 border-t border-[#86868b]/10">
-              <h3 className="text-xl font-semibold mb-4 text-[#1d1d1f]">
+              <h3 className="text-lg font-semibold mb-4 text-[#1d1d1f]">
                 Tecnologias
               </h3>
               <ul className="flex flex-wrap gap-3">
@@ -101,7 +101,7 @@ const ProjectContent: React.FC<Props> = ({ slug }) => {
                            font-medium transition-all duration-300 hover:bg-[#0077ED] 
                            hover:shadow-lg hover:shadow-blue-200/50"
               >
-                Ver Projeto →
+                 Demo →
               </a>
             </div>
           </div>

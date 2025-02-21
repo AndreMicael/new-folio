@@ -19,7 +19,7 @@ const ProjectCard = ({ slug, images, title, excerpt, stack }: ProjectCardProps) 
       <Card className="group relative max-w-4xl rounded-2xl mx-auto mb-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
         <CardContent className="p-0">
           <div className="w-full h-full">
-            <div className="relative h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden rounded-t-2xl">
+            <div className="relative h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-t-2xl">
               <Image
                 className="object-cover object-top w-full transition-transform duration-300 group-hover:scale-105"
                 src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${images}`}
@@ -39,9 +39,7 @@ const ProjectCard = ({ slug, images, title, excerpt, stack }: ProjectCardProps) 
                 <ArrowUpRight className="w-6 h-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
               </div>
               
-              <p className="text-gray-600 text-lg leading-relaxed">
-                {excerpt}
-              </p>
+               
               
               <div className="flex items-center space-x-2 pt-2">
                 <Code2 className="w-5 h-5 text-gray-500" />
