@@ -36,10 +36,11 @@ const ProjectCard = ({ slug, images, title, excerpt, stack }: ProjectCardProps) 
                 <h2 className="text-xl font-semibold text-gray-600 hover:opacity-80 transition-colors duration-300">
                   <Circle className="inline mr-2 text-orange-500" fill="currentColor" size={10} />{title}
                 </h2>
+               
                 <Maximize2 className="w-6 h-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
               </div> 
               
-               
+              <p>{excerpt}</p>
               
               <div className="flex items-center space-x-2 pt-2">
                 <Code2 className="w-5 h-5 text-gray-500" />
