@@ -27,7 +27,7 @@ const ProjectContent: React.FC<Props> = ({ slug }) => {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-12 bg-[#f5f5f7]">
-      {loading === true ? <div>Carregando...</div> : projects
+      {loading === true ? <div className="w-full flex h-screen flex-row justify-center items-center"><span className="loading loading-ring text-blue-700 loading-lg mr-2"></span> <p className="text-gray-600">Carregando projeto</p></div> : projects
         .filter((project) => project.slug === slug)
         .map((project) => (
           <div 
