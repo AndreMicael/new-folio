@@ -3,7 +3,7 @@ import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Code2, ArrowUpRight } from "lucide-react";
+import { Code2, ArrowUpRight, Circle, Maximize2 } from "lucide-react";
 
 interface ProjectCardProps {
   slug: string;
@@ -19,7 +19,7 @@ const ProjectCard = ({ slug, images, title, excerpt, stack }: ProjectCardProps) 
       <Card className="group relative max-w-4xl rounded-2xl mx-auto mb-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
         <CardContent className="p-0">
           <div className="w-full h-full">
-            <div className="relative h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-t-2xl">
+            <div className="relative h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] shadow-md overflow-hidden rounded-2xl">
               <Image
                 className="object-cover object-top w-full transition-transform duration-300 group-hover:scale-105"
                 src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${images}`}
@@ -33,11 +33,11 @@ const ProjectCard = ({ slug, images, title, excerpt, stack }: ProjectCardProps) 
             
             <div className="p-6 space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
-                  {title}
+                <h2 className="text-xl font-semibold text-gray-600 hover:opacity-80 transition-colors duration-300">
+                  <Circle className="inline mr-2 text-orange-500" fill="currentColor" size={10} />{title}
                 </h2>
-                <ArrowUpRight className="w-6 h-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
-              </div>
+                <Maximize2 className="w-6 h-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
+              </div> 
               
                
               

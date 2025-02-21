@@ -13,11 +13,13 @@ interface Props {
 
 const ProjectContent: React.FC<Props> = ({ slug }) => {
   const [projects, setProjects] = useState<Projeto[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadProjects = async () => {
       const fetchedProjects = await fetchProjetos();
       setProjects(fetchedProjects);
+      setLoading(false);
     };
 
     loadProjects();
@@ -25,7 +27,7 @@ const ProjectContent: React.FC<Props> = ({ slug }) => {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-12 bg-[#f5f5f7]">
-      {projects
+      {loading === true ? <div>Carregando...</div> : projects
         .filter((project) => project.slug === slug)
         .map((project) => (
           <div 

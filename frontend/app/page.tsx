@@ -12,9 +12,11 @@ export default function Home() {
 
 
 const [projetos, setProjetos] = useState<Projeto[]>([])
+const [loading, setLoading] = useState(true);
 
 const getProjects = async () => {
   try{
+   
     const response = await fetch ("/api/projetos", {
       method: "GET",
       headers: {
@@ -28,7 +30,7 @@ const getProjects = async () => {
 
     const data = await response.json();
     setProjetos(data.data);
-   
+    setLoading(false);
     data.data.forEach((project: Projeto) => {
       console.log("Medium image URL: " + project.image.formats.medium.url);
     });
@@ -51,7 +53,7 @@ useEffect(()=>{
       <ProfileCard />
 
       {/* Project Card */}
-      {projetos.slice(0,2).map((project: Projeto, index) => (
+      { loading === true ? <div className="w-full flex flex-row justify-center items-center"><span className="loading loading-ring text-blue-700 loading-lg"></span> </div>: projetos.slice(0,2).map((project: Projeto, index) => (
         <ProjectCard
           key={index}
           title={project.title}
@@ -61,11 +63,12 @@ useEffect(()=>{
           slug={project.slug}
         />
       ))}
-      <Link href={"/projetos"}>
+      
+    {!loading &&   <Link href={"/projetos"}>
       <div role="button" className="bg-slate-200 rounded-xl py-3 text-center">
         Ver mais projetos
       </div>
-      </Link>
+      </Link>}
     </main>
   );
 }
