@@ -8,14 +8,17 @@ import { Github } from "lucide-react";
 import "./Components.css";
 import avatar from "@/assets/image/avatar.jpg";
 import Image from "next/image";
+import { EB_Garamond } from "next/font/google";
+
+const garamond = EB_Garamond({ subsets: ["latin"] });
 
 const ProfileCard = () => {
   return (
     <div>
-      <Card className="max-w-4xl mx-auto mb-6 rounded-3xl  ">
-        <CardContent className="flex  flex-row justify-center items-center space-y-4 p-4 sm:p-6 md:p-8">
-          <div className="relative">
-            <Avatar className="h-[22vw] w-[22vw] sm:h-24 sm:w-24">
+      <Card className="max-w-4xl mx-auto mb-6 rounded-[12vw] ">
+        <CardContent className="flex   flex-row justify-cente   items-center mt-8 sm:p-6 md:p-8">
+          <div className="relative ">
+            <Avatar className="h-[20vw] w-[20vw] sm:h-24 sm:w-24">
               <Image
                 src={avatar}
                 alt="Profile"
@@ -33,43 +36,42 @@ const ProfileCard = () => {
             <h1 className="text-4xl sm:text-2xl font-semibold mb-2">
               André S.
             </h1>
-            <p className="text-gray-600  mb-4 text-sm sm:text-base">
+            <p className="text-gray-600  text-sm sm:text-base">
               Senior Developer | Next.js | React | TypeScript
             </p>
           </div>
         </CardContent>
         <CardContent className="gap-8 scale-90 w-full flex flex-col">
-          <div className="flex   justify-center items-center  gap-2 sm:gap-3">
-            <Button 
-            variant="profile"
-            className="text-sm sm:text-base h-9 sm:h-10
-            outline-2 outline outline-sky-600 text-sky-600">
-              <Linkedin className="mr-2 h-4 w-4" />
-              LinkedIn
+          <div className="flex   justify-left items-center gap-2 sm:gap-3">
+            <Button
+              variant="profile"
+              className="text-sm sm:text-base h-9 sm:h-10
+            outline-1 outline outline-gray-200 shadow-md hover:bg-slate-300  text-gray-600"
+            >
+              <Linkedin className=" h-4 w-4" />
             </Button>
             <Button
               variant="profile"
               className="text-sm sm:text-base h-9 sm:h-10
-              outline-2 outline outline-violet-700 text-violet-700
+               outline-1 outline outline-gray-200 shadow-md hover:bg-slate-300  text-gray-600
               "
             >
-              <Github className="mr-2 h-4 w-4" />
-              GitHub
+              <Github className=" h-4 w-4" />
             </Button>
             <Button
               variant="profile"
               className="text-sm sm:text-base h-9 sm:h-10
-              outline-2 outline outline-gray-400 text-gray-600" 
+              outline-1 outline outline-gray-200 shadow-md hover:bg-slate-300  text-gray-600"
             >
               <File className="mr-2 h-4 w-4" />
-              
               Currículo
             </Button>
           </div>
 
-          <p className="text-gray-500 text-center text-sm  w-full font-normal max-w-2xl sm:text-base sm:px-4">
-            Estudante de Sistemas de Informação na <strong> Universidade Federal de Mato
-            Grosso</strong>, atualmente fazendo Estágio em <strong>Desenvolvimento Web</strong>.
+          <p className="text-gray-500 text-center text-md  w-full font-normal max-w-2xl sm:text-base sm:px-4">
+            Estudante de Sistemas de Informação na{" "}
+            <strong> Universidade Federal de Mato Grosso</strong>, atualmente
+            fazendo Estágio em <strong>Desenvolvimento Web</strong>.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-2 text-gray-600 text-sm sm:text-base">

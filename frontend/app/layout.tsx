@@ -1,13 +1,14 @@
-import NavBar from '@/components/NavBar';
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import NavBar from "@/components/NavBar";
+import "./globals.css";
+import type { Metadata } from "next";
+import { Rubik } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] });
+const rubik = Rubik({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'John Doe - Developer Portfolio',
-  description: 'Senior Developer specializing in Next.js, React, and TypeScript',
+  title: "André Micael - Developer Portfolio",
+  description:
+    "Senior Developer specializing in Next.js, React, and TypeScript",
 };
 
 export default function RootLayout({
@@ -17,9 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt_br">
-      <body className={inter.className}>
-        <NavBar/>
-        {children}</body>
+      <body className={rubik.className}>
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }
