@@ -15,13 +15,14 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ slug, images, title, excerpt, stack }: ProjectCardProps) => {
   return (
-    <Link href={`/projetos/${slug}`}>
-      <Card className="group relative max-w-4xl rounded-2xl mx-auto mb-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
+    // <Link href={`/projetos/${slug}`}>
+      <Card className="group relative max-w-4xl border-[1.5px] rounded-2xl mx-auto mb-6 hover:shadow-xl transition-all duration-300 overflow-hidden">
         <CardContent className="p-0">
-          <div className="w-full h-full">
-            <div className="relative h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] shadow-md overflow-hidden rounded-2xl">
+          <div className="w-full h-full brounded-t-2xl  ">
+           <div className="bg-red-500 w-full relative px-6 pt-6 top-0">
+           <div className="relative h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] shadow-md overflow-hidden rounded-t-lg">
               <Image
-                className="object-cover object-top w-full transition-transform duration-300 group-hover:scale-105"
+                className=" "
                 src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${images}`}
                 alt={title}
                 fill
@@ -30,6 +31,7 @@ const ProjectCard = ({ slug, images, title, excerpt, stack }: ProjectCardProps) 
               />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all duration-300" />
             </div>
+           </div>
             
             <div className="p-6 space-y-4">
               <div className="flex items-center justify-between">
@@ -40,7 +42,7 @@ const ProjectCard = ({ slug, images, title, excerpt, stack }: ProjectCardProps) 
                 <Maximize2 className="w-6 h-6 text-gray-400 group-hover:text-blue-600 transition-colors duration-300" />
               </div> 
               
-              <p>{excerpt}</p>
+            
               
               <div className="flex items-center space-x-2 pt-2">
                 <Code2 className="w-5 h-5 text-gray-500" />
@@ -54,7 +56,7 @@ const ProjectCard = ({ slug, images, title, excerpt, stack }: ProjectCardProps) 
           </div>
         </CardContent>
       </Card>
-    </Link>
+    // </Link>
   );
 };
 

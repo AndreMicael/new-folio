@@ -6,6 +6,8 @@ import Projeto1 from "@/assets/image/projeto1.png";
 import { useState, useEffect } from "react";
 import Projeto from "@/interfaces/Projeto";
 import Link from "next/link";
+import AboutMe from "@/components/AboutMe";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   const [projetos, setProjetos] = useState<Projeto[]>([]);
@@ -40,13 +42,16 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#F3F3F3] p-4 sm:p-6 md:p-8">
+    <main className="min-h-screen  p-4 sm:p-6 md:p-8">
       {/* Top Navigation Icons */}
 
       {/* Profile Card */}
       <ProfileCard />
+      <div className="flex flex-col gap-8"><AboutMe/>
+      <Projects/></div>
+      
 
-      {/* Project Card */}
+      {/* Project Card
       {loading === true ? (
         <div className="w-full flex flex-row justify-center items-center">
           <span className="loading loading-ring text-blue-700 loading-lg"></span>{" "}
@@ -65,9 +70,9 @@ export default function Home() {
             slug={project.slug}
           />
         ))
-      )}
+      )} */}
 
-      {!loading && (
+      {/* {!loading && (
         <Link href={"/projetos"}>
           <div
             role="button"
@@ -76,7 +81,7 @@ export default function Home() {
             Ver mais projetos
           </div>
         </Link>
-      )}
+      )} */}
     </main>
   );
 }

@@ -1,9 +1,9 @@
 import NavBar from "@/components/NavBar";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Rubik } from "next/font/google";
+import { Open_Sans} from "next/font/google";
 
-const rubik = Rubik({ subsets: ["latin"] });
+const rubik = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "André Micael - Developer Portfolio",
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="pt_br">
       <body className={rubik.className}>
-        <NavBar />
+        {/* <NavBar /> */}
         {children}
       </body>
     </html>
