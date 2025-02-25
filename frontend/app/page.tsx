@@ -10,6 +10,7 @@ import AboutMe from "@/components/AboutMe";
 import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import TechStack from "@/components/TechStack";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   const [projetos, setProjetos] = useState<Projeto[]>([]);
@@ -44,16 +45,19 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen  p-4 sm:p-6 md:p-8">
+    <main className="min-h-screen  ">
+      
       {/* Top Navigation Icons */}
 
       {/* Profile Card */}
-      <ProfileCard />
-      <div className="flex flex-col gap-8"><AboutMe/>
-      <Projects/>
-      <Education/>
+     <div className="p-4 sm:p-6 md:p-8"> <ProfileCard /> </div>
+      <div className="flex flex-col gap-8">
+      <div className="p-4 sm:p-6 md:p-8"> <AboutMe/></div>
+      <div className="p-4 sm:p-6 md:p-8"><Projects/></div> 
+      <div className="p-4 sm:p-6 md:p-8"><Education/></div> 
       <TechStack/>
       </div>
+      <div className="p-4 sm:p-6 md:p-8"><Contact/></div> 
       
 
       {/* Project Card

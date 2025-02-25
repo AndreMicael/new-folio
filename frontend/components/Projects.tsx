@@ -57,7 +57,7 @@ const Projects = () => {
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           simulateTouch={true}
           onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
+         
         >
        {loading === true ? (
         <div className="w-full flex flex-row justify-center items-center">
@@ -81,6 +81,10 @@ const Projects = () => {
       )}
     </Swiper>
     </div>
+
+    <div role='button' className='w-full flex flex-row justify-end items-end mt-6 text-right   text-slate-600 '>
+              <p className='w-fit  hover:bg-slate-200 border-slate-500 border-b-[1.5px] pb-2 '>+ Projetos</p>
+            </div>
      
     </div>
   )

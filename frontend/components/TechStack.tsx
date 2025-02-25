@@ -22,8 +22,11 @@ const TechStack = () => {
 
   return (
     <div>
-        
-        <Button className='mb-4' variant="title">Tech Stack</Button>
+   
+   <div className='p-4 sm:p-6 md:p-8'>
+   <Button className='mb-4 ' variant="title">Tech Stack</Button>
+   </div>
+      
 
         <Swiper
           modules={[Scrollbar,Navigation, A11y, Autoplay]}
@@ -36,7 +39,7 @@ const TechStack = () => {
           autoplay={{ delay: 1000, disableOnInteraction: false }}
           simulateTouch={true}
           onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
+          
         >
             
        
@@ -59,7 +62,7 @@ const TechStack = () => {
 
             </Swiper>
 
-            <div role='button' className='w-full flex flex-row justify-end items-end mt-6 text-right   text-slate-600 '>
+            <div role='button' className='w-full flex flex-row justify-end items-end mt-6 text-right p-4 sm:p-6 md:p-8  text-slate-600 '>
               <p className='w-fit  hover:bg-slate-200 border-slate-500 border-b-[1.5px] pb-2 '>+ Detalhes</p>
             </div>
 
