@@ -8,6 +8,8 @@ import Projeto from "@/interfaces/Projeto";
 import Link from "next/link";
 import AboutMe from "@/components/AboutMe";
 import Projects from "@/components/Projects";
+import Education from "@/components/Education";
+import TechStack from "@/components/TechStack";
 
 export default function Home() {
   const [projetos, setProjetos] = useState<Projeto[]>([]);
@@ -48,7 +50,10 @@ export default function Home() {
       {/* Profile Card */}
       <ProfileCard />
       <div className="flex flex-col gap-8"><AboutMe/>
-      <Projects/></div>
+      <Projects/>
+      <Education/>
+      <TechStack/>
+      </div>
       
 
       {/* Project Card

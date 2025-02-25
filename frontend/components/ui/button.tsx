@@ -20,7 +20,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         title:
-          " text-slate-600 uppercase font-semibold border-[2px] py-0 bg-slate-100 border-dashed",
+          " cursor-default text-slate-600 uppercase font-semibold border-[2px] py-0 bg-slate-100 border-dashed",
         underline:
           "border-b-[1.5px] hover:bg-slate-200 py-0 text-slate-600 rounded-none border-slate-500 text-sm font-normal",
       },

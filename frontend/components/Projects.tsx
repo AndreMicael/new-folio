@@ -5,7 +5,7 @@ import ProjectCard from './ProjectCard'
 import { useState, useEffect } from "react";
 import Projeto from "@/interfaces/Projeto";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import { Scrollbar, A11y, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
@@ -47,10 +47,11 @@ const Projects = () => {
         <Button className='mb-2' variant="title">Projetos</Button>
       <div className='p-8'>
         <Swiper
-          modules={[Scrollbar, A11y, Autoplay]}
+          modules={[Scrollbar,Navigation, A11y, Autoplay]}
           spaceBetween={50}
           slidesPerView={1}
           loop={true}
+          navigation
           grabCursor={true}
           scrollbar={{ draggable: true }}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -71,7 +72,7 @@ const Projects = () => {
             stack={project.stacks.join(", ")}
             images={
           
-            "https://via.placeholder.com/300"
+           project.image.formats.medium.url
           }
             slug={project.slug}
           />
