@@ -11,6 +11,7 @@ import Projects from "@/components/Projects";
 import Education from "@/components/Education";
 import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const [projetos, setProjetos] = useState<Projeto[]>([]);
@@ -45,20 +46,49 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen  ">
-      
+    <main className="min-h-screen">
       {/* Top Navigation Icons */}
 
-      {/* Profile Card */}
-     <div className="p-4 sm:p-6 md:p-8"> <ProfileCard /> </div>
-      <div className="flex flex-col gap-8">
-      <div className="p-4 sm:p-6 md:p-8"> <AboutMe/></div>
-      <div className="p-4 sm:p-6 md:p-8"><Projects/></div> 
-      <div className="p-4 sm:p-6 md:p-8"><Education/></div> 
-      <TechStack/>
+      <div className="lg:flex">
+        {/* Profile Card - Fixo à esquerda em telas grandes */}
+        <div className="lg:sticky lg:top-0 md:bg-slate-200 lg:h-screen lg:w-1/3  ">
+          <ProfileCard />
+        </div>
+
+        {/* Conteúdo principal - Rola ao lado em telas grandes */}
+        <div className="lg:w-2/3">
+          <div className="flex flex-col gap-2">
+            <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
+              <div className="w-full">
+                <Button className='mb-6' variant="title">Sobre Mim</Button>
+              </div>
+              <AboutMe/>
+            </div>
+            <div className=" ">
+              <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
+                <Button className='mb-0' variant="title">Projetos</Button>
+              </div>
+              <Projects/>
+            </div>
+            <div className=" ">
+              <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
+                <Button className='mb-6' variant="title">Educação</Button>
+              </div>
+              <Education/>
+            </div>
+            <div className=" ">
+              <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
+                <Button className='mb-6' variant="title">Tech Stack</Button>
+              </div>
+              <TechStack/>
+            </div>
+          </div>
+          <div className=" mb-10">
+             
+            <Contact/>
+          </div>
+        </div>
       </div>
-      <div className="p-4 sm:p-6 md:p-8"><Contact/></div> 
-      
 
       {/* Project Card
       {loading === true ? (

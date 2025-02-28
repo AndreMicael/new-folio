@@ -14,25 +14,23 @@ const garamond = EB_Garamond({ subsets: ["latin"] });
 
 const ProfileCard = () => {
   return (
-    <div className="w-full">
-      <Card className="max-w-4xl mx-auto mb-6   ">
-        <CardContent className="flex   flex-col justify-center  gap-4 items-center mt-8 sm:p-6 md:p-8">
-          <div className="relative ">
-            <Avatar className=" sm:h-24 sm:w-24">
+    <div className="w-full  min-h-screen flex items-center justify-center  ">
+      <Card className="w-full max-w-md mx-auto">
+        <CardContent className="flex flex-col justify-center gap-4 items-center py-8">
+          <div className="relative w-32 h-32 sm:w-40 sm:h-40">
+            <Avatar className="h-full w-full">
               <Image
                 src="https://ui-avatars.com/api/?background=0D8ABC&color=fff"
                 alt="Profile"
-                width={120}
-                height={120}
-                className="object-cover"
+                width={160}
+                height={160}
+                className="object-cover rounded-full"
                 quality={100}
               />
             </Avatar>
           </div>
-
-          <div className="  text-center ">
-          
-            <h1 className="text-3xl   sm:text-2xl font-semibold text-slate-800 mb-1">
+          <div className="text-center">
+            <h1 className="text-2xl sm:text-2xl lg:text-2xl font-semibold text-slate-800 mb-1">
               André S.
             </h1>
             <div className="flex flex-col justify-center items-center gap-2">
@@ -46,26 +44,20 @@ const ProfileCard = () => {
               <div className="circle-green"></div>
               Available for work
             </Badge>
-            <Button className="mt-8" variant="underline" >Download CV <Download className="ml-2" size={18} /></Button>
+            <Button className="mt-4" variant="underline">Download CV <Download className="ml-2" size={18} /></Button>
             </div>
           </div>
         </CardContent>
         
-        <CardContent className="scale-90 gap-4 justify-center text-slate-500 items-center w-full border-t-[0.5px] pt-2 flex flex-col">
-
-        
-        
-   
-            
+        <CardContent className="gap-4 justify-center text-slate-500 items-center w-full border-t-[0.5px] pt-4 flex flex-col px-4">
             <div className="flex gap-2">
-            <Copy role="button" className="hover:bg-slate-200 hover:rounded-sm" size={18} /> contato@andremicael.com
+              <Copy role="button" className="hover:bg-slate-200 hover:rounded-sm" size={18} /> contato@andremicael.com
             </div>
 
-            <div className="flex   gap-8">
+            <div className="flex gap-8">
               <div className="flex items-center gap-1"><Linkedin size={18} />Linkedin</div>
-              <div className="flex  items-center gap-1"><Github size={18} />Github</div>
+              <div className="flex items-center gap-1"><Github size={18} />Github</div>
             </div>
-     
         </CardContent>
       </Card>
     </div>

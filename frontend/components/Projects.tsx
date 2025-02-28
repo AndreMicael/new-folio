@@ -1,11 +1,11 @@
 "use client";
 import React from 'react'
-import { Button } from './ui/button'
+ 
 import ProjectCard from './ProjectCard'
 import { useState, useEffect } from "react";
 import Projeto from "@/interfaces/Projeto";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar, A11y, Autoplay, Navigation } from 'swiper/modules';
+import { Scrollbar, A11y, Autoplay, Navigation } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
@@ -44,17 +44,33 @@ const Projects = () => {
 
   return (
     <div>
-        <Button className='mb-2' variant="title">Projetos</Button>
-      <div className='p-8'>
+     
+      <div className=" px-8  ">
         <Swiper
           modules={[Scrollbar,Navigation, A11y, Autoplay]}
           spaceBetween={50}
           slidesPerView={1}
+          breakpoints={{
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 30
+            },
+            1280: {
+              slidesPerView: 2,
+              spaceBetween: 50
+            }
+          }}
           loop={true}
+          loopAdditionalSlides={projetos.length}
           navigation
           grabCursor={true}
           scrollbar={{ draggable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          autoplay={{ 
+            delay: 3000, 
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false
+          }}
+          speed={800}
           simulateTouch={true}
           onSwiper={(swiper) => console.log(swiper)}
          
@@ -64,16 +80,13 @@ const Projects = () => {
           <span className="loading loading-ring text-blue-700 loading-lg"></span>{" "}
         </div>
       ) : (
-        projetos.slice(0, 2).map((project: Projeto, index) => (
+        projetos.map((project: Projeto, index) => (
             <SwiperSlide key={index}>
           <ProjectCard
             title={project.title}
             excerpt={project.excerpt}
             stack={project.stacks.join(", ")}
-            images={
-          
-           project.image.formats.medium.url
-          }
+            images={project.image.formats.medium.url}
             slug={project.slug}
           />
           </SwiperSlide>
@@ -82,8 +95,8 @@ const Projects = () => {
     </Swiper>
     </div>
 
-    <div role='button' className='w-full flex flex-row justify-end items-end mt-6 text-right   text-slate-600 '>
-              <p className='w-fit  hover:bg-slate-200 border-slate-500 border-b-[1.5px] pb-2 '>+ Projetos</p>
+    <div role='button' className='w-[63vw] flex flex-row   justify-end items-end mt-6 text-right    text-slate-600 '>
+              <p className='w-fit  hover:bg-slate-200  border-slate-500 border-b-[1.5px] pb-2 '>+ Projetos</p>
             </div>
      
     </div>
