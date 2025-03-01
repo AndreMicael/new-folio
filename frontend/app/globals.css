@@ -73,12 +73,16 @@
 }
 
 @layer base {
+  body {
+    @apply dark:bg-slate-800 bg-gray-50;
+  }
+}
+
+@layer base {
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+  
 }
 
 .borda {

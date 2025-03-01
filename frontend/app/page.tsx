@@ -12,10 +12,14 @@ import Education from "@/components/Education";
 import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
 import { Button } from "@/components/ui/button";
+import ThemeSwitch from "@/components/ThemeSwitcher";
+import ThemeToggle from "@/components/ThemeToggle";
+import ThemeProvider from "@/components/ThemeProvider";
 
 export default function Home() {
   const [projetos, setProjetos] = useState<Projeto[]>([]);
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState("light");
 
   const getProjects = async () => {
     try {
@@ -46,81 +50,93 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen">
-      {/* Top Navigation Icons */}
-
-      <div className="lg:flex">
-        {/* Profile Card - Fixo à esquerda em telas grandes */}
-        <div className="lg:sticky lg:top-0 md:bg-slate-200 lg:h-screen lg:w-1/3  ">
-          <ProfileCard />
+    <ThemeProvider initialTheme={theme as any}>
+      <main className="min-h-screen">
+        {/* Adicione o ThemeToggle no topo da página */}
+        <div className="fixed top-4 right-4 z-50">
+          <ThemeToggle />
         </div>
 
-        {/* Conteúdo principal - Rola ao lado em telas grandes */}
-        <div className="lg:w-2/3">
-          <div className="flex flex-col gap-2">
-            <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
-              <div className="w-full">
-                <Button className='mb-6' variant="title">Sobre Mim</Button>
-              </div>
-              <AboutMe/>
-            </div>
-            <div className=" ">
-              <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
-                <Button className='mb-0' variant="title">Projetos</Button>
-              </div>
-              <Projects/>
-            </div>
-            <div className=" ">
-              <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
-                <Button className='mb-6' variant="title">Educação</Button>
-              </div>
-              <Education/>
-            </div>
-            <div className=" ">
-              <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
-                <Button className='mb-6' variant="title">Tech Stack</Button>
-              </div>
-              <TechStack/>
-            </div>
+        <div className="lg:flex">
+          {/* Profile Card - Fixo à esquerda em telas grandes */}
+          <div className="lg:sticky lg:top-0 md:bg-slate-200 lg:h-screen lg:w-1/3  ">
+            <ProfileCard />
           </div>
-          <div className=" mb-10">
-             
-            <Contact/>
+
+          {/* Conteúdo principal - Rola ao lado em telas grandes */}
+          <div className="lg:w-2/3">
+            <div className="flex flex-col gap-2">
+              <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
+                <div className="w-full">
+                  <Button className="mb-6" variant="title">
+                    Sobre Mim
+                  </Button>
+                </div>
+                <AboutMe />
+              </div>
+              <div className=" ">
+                <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
+                  <Button className="mb-0" variant="title">
+                    Projetos
+                  </Button>
+                </div>
+                <Projects />
+              </div>
+              <div className=" ">
+                <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
+                  <Button className="mb-6" variant="title">
+                    Educação
+                  </Button>
+                </div>
+                <Education />
+              </div>
+              <div className=" ">
+                <div className="p-4 w-[50vw] mx-auto sm:p-6 md:p-8">
+                  <Button className="mb-6" variant="title">
+                    Tech Stack
+                  </Button>
+                </div>
+                <TechStack />
+              </div>
+            </div>
+            <div className=" mb-10">
+              <Contact />
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Project Card
-      {loading === true ? (
-        <div className="w-full flex flex-row justify-center items-center">
-          <span className="loading loading-ring text-blue-700 loading-lg"></span>{" "}
-        </div>
-      ) : (
-        projetos.slice(0, 2).map((project: Projeto, index) => (
-          <ProjectCard
-            key={index}
-            title={project.title}
-            excerpt={project.excerpt}
-            stack={project.stacks.join(", ")}
-            // images={
-            //   project.image.formats.medium.url ||
-            //   "https://via.placeholder.com/300"
-            // }
-            slug={project.slug}
-          />
-        ))
-      )} */}
-
-      {/* {!loading && (
-        <Link href={"/projetos"}>
-          <div
-            role="button"
-            className="bg-slate-200 rounded-xl py-3 text-center"
-          >
-            Ver mais projetos
+        {/* Project Card
+        {loading === true ? (
+          <div className="w-full flex flex-row justify-center items-center">
+            <span className="loading loading-ring text-blue-700 loading-lg"></span>{" "}
           </div>
-        </Link>
-      )} */}
-    </main>
+        ) : (
+          projetos.slice(0, 2).map((project: Projeto, index) => (
+            <ProjectCard
+              key={index}
+              title={project.title}
+              excerpt={project.excerpt}
+              stack={project.stacks.join(", ")}
+              // images={
+              //   project.image.formats.medium.url ||
+              //   "https://via.placeholder.com/300"
+              // }
+              slug={project.slug}
+            />
+          ))
+        )} */}
+
+        {/* {!loading && (
+          <Link href={"/projetos"}>
+            <div
+              role="button"
+              className="bg-slate-200 rounded-xl py-3 text-center"
+            >
+              Ver mais projetos
+            </div>
+          </Link>
+        )} */}
+      </main>
+    </ThemeProvider>
   );
 }
