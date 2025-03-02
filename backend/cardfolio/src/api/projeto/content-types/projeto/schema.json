@@ -51,6 +51,9 @@
         ""
       ],
       "customField": "plugin::multi-select.multi-select"
+    },
+    "link": {
+      "type": "string"
     }
   }
 }

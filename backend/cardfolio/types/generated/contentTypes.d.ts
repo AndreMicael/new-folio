@@ -387,6 +387,7 @@ export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
     description: Schema.Attribute.RichText;
     excerpt: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -420,6 +421,157 @@ export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiUsuarioUsuario extends Struct.CollectionTypeSchema {
+  collectionName: 'usuarios';
+  info: {
+    description: '';
+    displayName: 'Usuario';
+    pluralName: 'usuarios';
+    singularName: 'usuario';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    backend: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Node.js',
+          'Express.js',
+          'NestJS',
+          'Fastify',
+          'Deno',
+          'Bun',
+          'Spring Boot',
+          'Django',
+          'Flask',
+          'Ruby on Rails',
+          'ASP.NET Core',
+          'Laravel',
+          'Prisma ORM',
+          'Sequelize',
+          'TypeORM',
+          'Mongoose',
+          'Knex.js',
+          'PostgreSQL',
+          'MySQL',
+          'SQLite',
+          'MongoDB',
+          'Redis',
+          'Firebase Firestore',
+          'Supabase',
+          'PlanetScale',
+          'REST API',
+          'GraphQL',
+          'tRPC',
+          'gRPC',
+          'WebSockets',
+          'Kafka',
+          'RabbitMQ',
+          'Docker',
+          'Kubernetes',
+          'Nginx',
+          'PM2',
+          'JWT (JSON Web Token)',
+          'OAuth 2.0',
+          'Passport.js',
+          'Zod',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    frontend: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'HTML5',
+          'CSS3',
+          'JavaScript',
+          'TypeScript',
+          'React.js',
+          'Next.js',
+          'Vue.js',
+          'Angular',
+          'Svelte',
+          'Tailwind CSS',
+          'Bootstrap',
+          'Sass (SCSS)',
+          'Styled Components',
+          'Material UI',
+          'Chakra UI',
+          'Framer Motion',
+          'Three.js',
+          'GSAP (GreenSock Animation Platform)',
+          'GraphQL',
+          'REST API',
+          'Vite',
+          'Webpack',
+          'Parcel',
+          'ESLint',
+          'Prettier',
+          'Storybook',
+          'Jest',
+          'Cypress',
+          'Playwright',
+          'Git',
+          'GitHub',
+          'Figma',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::usuario.usuario'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    sobre: Schema.Attribute.RichText;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    ux: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Figma',
+          'Adobe XD',
+          'Sketch',
+          'InVision',
+          'Framer',
+          'Axure RP',
+          'Balsamiq',
+          'Adobe Illustrator',
+          'Adobe Photoshop',
+          'CorelDRAW',
+          'Affinity Designer',
+          'Canva',
+          'Blender',
+          'Cinema 4D',
+          '3ds Max',
+          'Rhinoceros (Rhino 3D)',
+          'ZBrush',
+          'Procreate',
+          'Krita',
+          'GIMP',
+          'LottieFiles',
+          'Spline',
+          'Principle',
+          'Marvel App',
+          'FigJam',
+          'Miro',
+          'Whimsical',
+          'UserTesting',
+          'Maze',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
   };
 }
 
@@ -933,6 +1085,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::projeto.projeto': ApiProjetoProjeto;
+      'api::usuario.usuario': ApiUsuarioUsuario;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
