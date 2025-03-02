@@ -436,6 +436,7 @@ export interface ApiUsuarioUsuario extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    avatar: Schema.Attribute.Media<'images'>;
     backend: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<
         'plugin::multi-select.multi-select',

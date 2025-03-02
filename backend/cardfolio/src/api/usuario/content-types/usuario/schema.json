@@ -135,6 +135,13 @@
         "Maze"
       ],
       "customField": "plugin::multi-select.multi-select"
+    },
+    "avatar": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
