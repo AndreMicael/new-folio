@@ -381,6 +381,7 @@ export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    ano: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -417,6 +418,7 @@ export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
         ]
       > &
       Schema.Attribute.DefaultTo<'[]'>;
+    tipo: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

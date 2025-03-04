@@ -54,6 +54,12 @@
     },
     "link": {
       "type": "string"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "ano": {
+      "type": "string"
     }
   }
 }
