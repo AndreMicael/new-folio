@@ -382,11 +382,98 @@ export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
   };
   attributes: {
     ano: Schema.Attribute.String;
+    backend: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Node.js',
+          'Express.js',
+          'NestJS',
+          'Fastify',
+          'Deno',
+          'Bun',
+          'Spring Boot',
+          'Django',
+          'Flask',
+          'Ruby on Rails',
+          'ASP.NET Core',
+          'Laravel',
+          'Prisma ORM',
+          'Sequelize',
+          'TypeORM',
+          'Mongoose',
+          'Knex.js',
+          'PostgreSQL',
+          'MySQL',
+          'SQLite',
+          'MongoDB',
+          'Redis',
+          'Firebase Firestore',
+          'Supabase',
+          'PlanetScale',
+          'REST API',
+          'GraphQL',
+          'tRPC',
+          'gRPC',
+          'WebSockets',
+          'Kafka',
+          'RabbitMQ',
+          'Docker',
+          'Kubernetes',
+          'Nginx',
+          'PM2',
+          'JWT (JSON Web Token)',
+          'OAuth 2.0',
+          'Passport.js',
+          'Zod',
+          'Wordpress',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.RichText;
     excerpt: Schema.Attribute.Text;
+    frontend: Schema.Attribute.JSON &
+      Schema.Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'HTML5',
+          'CSS3',
+          'JavaScript',
+          'TypeScript',
+          'React.js',
+          'Next.js',
+          'Vue.js',
+          'Angular',
+          'Svelte',
+          'Tailwind CSS',
+          'Bootstrap',
+          'Sass (SCSS)',
+          'Styled Components',
+          'Material UI',
+          'Chakra UI',
+          'Framer Motion',
+          'Three.js',
+          'GSAP (GreenSock Animation Platform)',
+          'GraphQL',
+          'REST API',
+          'Vite',
+          'Webpack',
+          'Parcel',
+          'ESLint',
+          'Prettier',
+          'Storybook',
+          'Jest',
+          'Cypress',
+          'Playwright',
+          'Git',
+          'GitHub',
+          'Figma',
+        ]
+      > &
+      Schema.Attribute.DefaultTo<'[]'>;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -397,27 +484,6 @@ export interface ApiProjetoProjeto extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String;
-    stacks: Schema.Attribute.JSON &
-      Schema.Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        [
-          'html5',
-          'css3',
-          'javascript',
-          'react',
-          'next.js',
-          'docker',
-          'tailwind',
-          'php',
-          'puppeteer',
-          'mysql',
-          'postgreSQL',
-          'mySQL',
-          '',
-          '',
-        ]
-      > &
-      Schema.Attribute.DefaultTo<'[]'>;
     tipo: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
